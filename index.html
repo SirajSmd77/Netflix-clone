@@ -41,11 +41,12 @@
 
     <section class="section">
         <h2 class="title">Trending Now</h2>
-        <div class="container">
-            <button class="arrow left-arrow" onclick="scrollLeft()">&#10094;</button>
+        <div class="container ">
+            <button class="arrow left-arrow" id="left-arrow-1" onclick="handleLeft()">&#10094;</button>
+
             <div class="carousel">
                 <div class="image-container">
-                    <img src="images/pushpa.webp" alt="Pushpa">
+                    <img src="images/pushpa.webp" alt="Pushpa" onclick="openlink()">
                 </div>
                 <div class="image-container">
                     <img src="images/squid.webp" alt="Squid Game">
@@ -53,13 +54,21 @@
                 <div class="image-container">
                     <img src="images/lucky.webp" alt="Lucky">
                 </div>
+
+                <!-- adding duplicate images -->
+
                 <div class="image-container">
                     <img src="images/devara.webp" alt="Devara">
                 </div>
+                <!-- end duplicates -->
                 <div class="image-container">
                     <img src="images/bhool.webp" alt="Bhool Bhulaiyaa">
                 </div>
+                <div class="image-container">
+                    <img src="images/devara.webp" alt="Devara">
+                </div>
             </div>
+
             <button class="arrow right-arrow" onclick="scrollRight()">&#10095;</button>
         </div>
 
@@ -80,6 +89,11 @@
                     </div>
                     <div class="image-container">
                         <img src="images/five.avif" alt="Bhool Bhulaiyaa">
+                    </div>
+
+                    <!-- duplicate 2 -->
+                    <div class="image-container">
+                        <img src="images/net.avif" alt="Bhool Bhulaiyaa">
                     </div>
                 </div>
             </div>
@@ -207,12 +221,32 @@
 
 
     <script>
-        function scrollLeft() {
-            document.querySelector('.carousel').scrollBy({ left: 250, behavior: 'smooth' });
+
+        const SCROLL_AMOUNT = 200;
+
+        function handleLeft() {
+            let scrollContainer = document.querySelector('.carousel');
+            console.log("scrollLeft");
+            console.log("query", document.querySelector('.container'))
+            // document.querySelector('.carousel').scrollBy({ left: 250, behavior: 'smooth' });
+
+            console.log("scrollContainer", scrollContainer)
+            if (scrollContainer.scrollLeft > 0) {
+                console.log("if")
+                console.log("leftscroll", scrollContainer.scrollLeft)
+                scrollContainer.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' });
+            } else {
+                console.log("else")
+
+                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            }
         }
 
         function scrollRight() {
+            console.log("scrollRight")
             document.querySelector('.carousel').scrollBy({ left: 250, behavior: 'smooth' });
+
+
         }
     </script>
 

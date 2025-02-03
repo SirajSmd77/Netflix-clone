@@ -222,8 +222,8 @@ section.first > div  :nth-child(2){
     display: flex;
     align-items: center;
     position: relative;
-    width: 60vw;
-    overflow: hidden;
+    width: 80vw;
+    /* overflow: auto; */
 }
 
 .carousel {
